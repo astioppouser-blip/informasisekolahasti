@@ -1,58 +1,136 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Praktikum Laravel - Routing dan MVC
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Nama:** Asti Atiyah  
+**NIM:** C2483207016  
+**Kelas:** PTI5A  
+**Program Studi:** Pendidikan Teknologi Informasi  
+**Universitas:** Universitas Muhammadiyah Tasikmalaya  
 
-## About Laravel
+**Tema/Judul:** Sistem Informasi Sekolah SDN Puspamukti
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 1. Deskripsi Aplikasi
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Sistem Informasi Sekolah SDN Puspamukti merupakan website sederhana yang dibuat menggunakan framework Laravel. Website ini bertujuan untuk memberikan informasi mengenai profil sekolah, daftar guru, dan kegiatan sekolah.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Website ini memiliki lima halaman utama, yaitu:
 
-## Learning Laravel
+1. Beranda
+2. Profil Sekolah
+3. Daftar Guru
+4. Kegiatan
+5. Detail Kegiatan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Aplikasi ini menggunakan data statis berupa array PHP yang dikelola melalui Controller dan ditampilkan menggunakan Blade View. Project ini tidak menggunakan database.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 2. Implementasi Routing, Controller, dan View
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### A. Routing
 
-## Agentic Development
+Routing digunakan untuk mengatur alamat URL dan menghubungkan permintaan pengguna dengan method pada Controller.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+Route yang digunakan dalam project ini:
+
+| No. | URL | Fungsi |
+|---|---|---|
+| 1 | `/` | Halaman Beranda |
+| 2 | `/profil` | Halaman Profil Sekolah |
+| 3 | `/guru` | Halaman Daftar Guru |
+| 4 | `/kegiatan` | Halaman Kegiatan |
+| 5 | `/kegiatan/{id}` | Halaman Detail Kegiatan |
+
+Seluruh route menggunakan metode GET dan didefinisikan pada file `routes/web.php`.
+
+### B. Controller
+
+Controller berfungsi untuk mengelola data dan menghubungkan data dengan View.
+
+Project ini menggunakan dua Controller:
+
+1. **HomeController**
+   - `index()` untuk menampilkan halaman Beranda.
+   - `profil()` untuk menampilkan Profil Sekolah.
+
+2. **InformasiController**
+   - `guru()` untuk menampilkan Daftar Guru.
+   - `kegiatan()` untuk menampilkan Daftar Kegiatan.
+   - `detailKegiatan($id)` untuk menampilkan Detail Kegiatan berdasarkan ID.
+
+Data sekolah, guru, dan kegiatan disimpan dalam array PHP pada Controller, kemudian dikirimkan ke View.
+
+### C. View dan Blade
+
+View digunakan untuk menampilkan halaman website kepada pengguna dengan menggunakan Blade Template Laravel.
+
+Implementasi Blade yang digunakan meliputi:
+
+- `@extends` untuk menggunakan layout utama.
+- `@section` untuk mengisi bagian konten halaman.
+- `@yield` untuk menampilkan bagian konten dari halaman.
+- `{{ }}` untuk menampilkan data.
+- `@foreach` untuk menampilkan data secara berulang.
+- `@if` untuk menampilkan kondisi sesuai kebutuhan.
+
+## 3. Screenshot Aplikasi
+
+Berikut merupakan dokumentasi tampilan website Sistem Informasi Sekolah SDN Puspamukti.
+
+### A. Halaman Beranda
+
+![Halaman Beranda](Screenshots/beranda.png)
+
+### B. Halaman Daftar Guru
+
+![Halaman Daftar Guru](Screenshots/daftar-guru.png)
+
+### C. Halaman Detail Kegiatan
+
+![Halaman Detail Kegiatan](Screenshots/detailkegiatan.png)
+
+## 4. Teknologi yang Digunakan
+
+- PHP
+- Laravel
+- HTML
+- CSS
+- Blade Template
+- Visual Studio Code
+
+## 5. Cara Menjalankan Proyek
+
+Berikut langkah-langkah untuk menjalankan aplikasi:
+
+1. Pastikan PHP dan Composer sudah terinstal.
+2. Clone repository GitHub atau buka folder project.
+3. Buka terminal pada folder project.
+4. Jalankan perintah berikut:
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+composer install
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+5. Salin file `.env.example` menjadi `.env`.
+6. Buat application key dengan perintah:
 
-## Contributing
+```bash
+php artisan key:generate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. Jalankan server Laravel:
 
-## Code of Conduct
+```bash
+php artisan serve
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+8. Buka browser dan akses alamat:
 
-## Security Vulnerabilities
+```text
+http://127.0.0.1:8000
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 6. Kesimpulan
 
-## License
+Melalui praktikum ini, saya dapat memahami penerapan Routing, Controller, dan View menggunakan framework Laravel. Saya juga dapat membuat website sederhana dengan beberapa halaman yang saling terhubung serta menerapkan konsep MVC dalam pengembangan aplikasi web.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+**Repository GitHub:** [Masukkan URL Repository GitHub]
