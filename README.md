@@ -80,7 +80,7 @@ Berikut merupakan dokumentasi tampilan website Sistem Informasi Sekolah SDN Pusp
 
 ### B. Halaman Daftar Guru
 
-![Halaman Daftar Guru](Screenshots/daftar-guru.png)
+![Halaman Daftar Guru](Screenshots/daftarguru.png)
 
 ### C. Halaman Detail Kegiatan
 
